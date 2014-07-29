@@ -1,0 +1,11 @@
+<assembly>
+    <id>package</id> 
+    <formats>
+        <format>tar.gz</format>
+    </formats>
+    <fileSets>
+        <fileSet>
+            <directory>${project.build.directory}/demo</directory>
+        </fileSet>
+</fileSets>
+</assembly>

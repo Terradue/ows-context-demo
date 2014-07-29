@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<feed xmlns="http://www.w3.org/2005/Atom" 
+	xmlns:dc="http://purl.org/dc/elements/1.1/" 
+	xmlns:georss="http://www.georss.org/georss" 
+	xmlns:gml="http://www.opengis.net/gml" 
+	xmlns:owc="http://www.opengis.net/owc/1.0" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xml:lang="en" >
+
+<!-- 
+./terradue/products/trax/src/ows/trunk/bin
+
+sh ./ows2owc -m 'fragment' -b '-69,40,12,65' -u 'http://www.gebco.net/data_and_products/gebco_web_services/web_map_service/mapserv?SERVICE=WMS&VERSION=1.1.1&request=GetCapabilities' -l 'GEBCO_08_Grid' 
+
+sh ./ows2owc -m 'fragment' -b '-69,40,12,65' -u 'http://geo.vliz.be/geoserver/MarineRegions/wms?Request=getCapabilities' -l 'MarineRegions:boundaries'
+
+sh ./ows2owc -m 'fragment' -b '-69,40,12,65' -u 'http://10.11.31.11:8080/geoserver/imarine/ows?service=WFS&version=1.0.0&request=GetCapabilities' -l 'imarine:kerneldensity'
+
+-->
+ 
+  <id>OSWContext_04</id>
+  <title>OWS Context example with FAO and i-Marine Data</title>  
+  <link rel="profile"
+		href="http://www.opengis.net/spec/owc-atom/1.0/req/core"
+		title="This file is compliant with version 1.0 of OGC Context"/>
+  <updated>2013-02-06T17-06T01:10:42Z</updated>
+  <georss:where xmlns:georss="http://www.georss.org/georss">
+    <gml:Polygon xmlns:gml="http://www.opengis.net/gml">
+      <gml:exterior>
+        <gml:LinearRing>
+          <gml:posList>35 -75 35 20 70 20 70 -75 35 -75</gml:posList>
+        </gml:LinearRing>
+      </gml:exterior>
+    </gml:Polygon>
+  </georss:where>
+  <author>
+      <name>iMarine</name>
+  </author>
+  <dc:publisher>Terradue Srl.</dc:publisher>
+  <entry xmlns="http://www.w3.org/2005/Atom">
+  <id>http://www.gebco.net/data_and_products/gebco_web_services/web_map_service/mapserv?/</id>
+  <title>GEBCO_08 Grid</title>
+  <author xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:georss="http://www.georss.org/georss" xmlns:gml="http://www.opengis.net/gml" xmlns:owc="http://www.opengis.net/owc/1.0" xmlns:ows="http://www.opengis.net/ows">
+    <name>Pauline Weatherall</name>
+    <email>enquiries@bodc.ac.uk</email>
+    <uri>http://www.gebco.net/data_and_products/gebco_web_services/web_map_service/mapserv?</uri>
+  </author>
+  <dc:publisher xmlns:dc="http://purl.org/dc/elements/1.1/">British Oceanographic Data Centre (BODC)</dc:publisher>
+  <updated>2013-03-21T14:48:26Z</updated>
+  <dc:rights xmlns:dc="http://purl.org/dc/elements/1.1/">Fee: / Contraints:Imagery from this WMS is not to be used for navigation or any purpose relating to safety at sea
+Although every effort has been made to make sure that the imagery is as error free as possible, BODC and GEBCO give
+no warranty as to the quality or completeness of the imagery or to the non-interruption or continuation of the service.</dc:rights>
+  <georss:where xmlns:georss="http://www.georss.org/georss">
+    <gml:Polygon xmlns:gml="http://www.opengis.net/gml">
+      <gml:exterior>
+        <gml:LinearRing>
+          <gml:posList>40 -69 40 12 65 12 65 -69 40 -69</gml:posList>
+        </gml:LinearRing>
+      </gml:exterior>
+    </gml:Polygon>
+  </georss:where>
+  <link rel="enclosure" type="image/png" title="WMS output for GEBCO_08 Grid" href="http://www.gebco.net/data_and_products/gebco_web_services/web_map_service/mapserv?&amp;SERVICE=WMS&amp;VERSION=1.1.1&amp;REQUEST=GetMap&amp;BBOX=-69,40,12,65&amp;SRS=EPSG:4326&amp;WIDTH=1620&amp;HEIGHT=500&amp;LAYERS=GEBCO_08_Grid&amp;FORMAT=image/png&amp;BGCOLOR=0xffffff&amp;TRANSPARENT=TRUE&amp;EXCEPTIONS=application/vnd.ogc.se_xml"/>
+  <link rel="icon" type="image/png" title="Preview for GEBCO_08 Grid" href="http://www.gebco.net/data_and_products/gebco_web_services/web_map_service/mapserv?&amp;SERVICE=WMS&amp;VERSION=1.1.1&amp;REQUEST=GetMap&amp;SRS=EPSG:4326&amp;BBOX=-69,40,12,65&amp;WIDTH=324&amp;HEIGHT=100&amp;LAYERS=GEBCO_08_Grid&amp;STYLES=&amp;FORMAT=image/png&amp;BGCOLOR=0xffffff&amp;TRANSPARENT=TRUE&amp;EXCEPTIONS=application/vnd.ogc.se_xml"/>
+  <link rel="via" type="application/vnd.ogc.wms_xml" title="Original GetCapabilities document" href="http://www.gebco.net/data_and_products/gebco_web_services/web_map_service/mapserv?&amp;SERVICE=WMS&amp;VERSION=1.1.1&amp;REQUEST=GetCapabilities"/>
+  <content type="html">
+        &lt;br/&gt;
+	&lt;img border='1' align='right' height='100'src='http://www.gebco.net/data_and_products/gebco_web_services/web_map_service/mapserv?&amp;SERVICE=WMS&amp;VERSION=1.1.1&amp;REQUEST=GetMap&amp;SRS=EPSG:4326&amp;BBOX=-69,40,12,65&amp;WIDTH=324&amp;HEIGHT=100&amp;LAYERS=GEBCO_08_Grid&amp;STYLES=&amp;FORMAT=image/png&amp;BGCOLOR=0xffffff&amp;TRANSPARENT=TRUE&amp;EXCEPTIONS=application/vnd.ogc.se_xml'/&gt;
+	
+	&lt;br/&gt;
+	This resource is available from a OGC WMS Service (version 1.1.1) and it contains the following access points:
+	&lt;ul&gt;
+	&lt;li&gt;
+	&lt;a href='http://www.gebco.net/data_and_products/gebco_web_services/web_map_service/mapserv?&amp;SERVICE=WMS&amp;VERSION=1.1.1&amp;REQUEST=GetMap&amp;BBOX=-69,40,12,65&amp;SRS=EPSG:4326&amp;WIDTH=1620&amp;HEIGHT=500&amp;LAYERS=GEBCO_08_Grid&amp;FORMAT=image/png&amp;BGCOLOR=0xffffff&amp;TRANSPARENT=TRUE&amp;EXCEPTIONS=application/vnd.ogc.se_xml'&gt;
+	GetMap &lt;/a&gt; request in image/png (atom:link[@rel="enclosure"])
+	&lt;/li&gt;
+	
+	&lt;li&gt;
+	&lt;a href='http://www.gebco.net/data_and_products/gebco_web_services/web_map_service/mapserv?&amp;SERVICE=WMS&amp;VERSION=1.1.1&amp;REQUEST=GetCapabilities'&gt;
+	GetCapabilities &lt;/a&gt; request (atom:link[@rel="via"])
+	&lt;/li&gt;
+	&lt;/li&gt;
+	&lt;/ul&gt;
+	Bathymetry data from the GEBCO_08 Grid
+	&lt;p style='font-size:small'&gt;OGC Context CITE Testing XSLT (Extensible Stylesheet Language Transformations) by Terradue Srl.&lt;/p&gt;
+	</content>
+  <owc:offering xmlns:owc="http://www.opengis.net/owc/1.0" code="http://www.opengis.net/spec/owc/1.0/req/atom/wms">
+    <owc:operation method="GET" code="GetCapabilities" href="http://www.gebco.net/data_and_products/gebco_web_services/web_map_service/mapserv?&amp;SERVICE=WMS&amp;VERSION=1.1.1&amp;REQUEST=GetCapabilities"/>
+    <owc:operation method="GET" code="GetMap" href="http://www.gebco.net/data_and_products/gebco_web_services/web_map_service/mapserv?&amp;SERVICE=WMS&amp;VERSION=1.1.1&amp;REQUEST=GetMap&amp;BBOX=-69,40,12,65&amp;SRS=EPSG:4326&amp;WIDTH=1620&amp;HEIGHT=500&amp;LAYERS=GEBCO_08_Grid&amp;FORMAT=image/png&amp;BGCOLOR=0xffffff&amp;TRANSPARENT=TRUE&amp;EXCEPTIONS=application/vnd.ogc.se_xml"/>
+  </owc:offering>
+</entry>
+
+  <entry xmlns="http://www.w3.org/2005/Atom">
+  <id>http://geo.vliz.be:80/geoserver/MarineRegions/ows?SERVICE=WMS&amp;MarineRegions:boundaries/</id>
+  <title>Maritime boundaries, Marbound, version 7 (lines)</title>
+  <author xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:georss="http://www.georss.org/georss" xmlns:gml="http://www.opengis.net/gml" xmlns:owc="http://www.opengis.net/owc/1.0" xmlns:ows="http://www.opengis.net/ows">
+    <name>Bart Vanhoorne</name>
+    <email>bartv@vliz.be</email>
+    <uri>http://geo.vliz.be:80/geoserver/MarineRegions/ows?SERVICE=WMS&amp;</uri>
+  </author>
+  <dc:publisher xmlns:dc="http://purl.org/dc/elements/1.1/">Flanders Marine Institute (VLIZ)</dc:publisher>
+  <updated>2013-03-21T14:49:36Z</updated>
+  <dc:rights xmlns:dc="http://purl.org/dc/elements/1.1/">Fee:NONE / Contraints:Please contact VLIZ if you want to use a layer</dc:rights>
+  <georss:where xmlns:georss="http://www.georss.org/georss">
+    <gml:Polygon xmlns:gml="http://www.opengis.net/gml">
+      <gml:exterior>
+        <gml:LinearRing>
+          <gml:posList>40 -69 40 12 65 12 65 -69 40 -69</gml:posList>
+        </gml:LinearRing>
+      </gml:exterior>
+    </gml:Polygon>
+  </georss:where>
+  <link rel="enclosure" type="image/png" title="WMS output for Maritime boundaries, Marbound, version 7 (lines)" href="http://geo.vliz.be:80/geoserver/MarineRegions/ows?SERVICE=WMS&amp;&amp;SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetMap&amp;BBOX=40,-69,65,12&amp;CRS=EPSG:4326&amp;WIDTH=1620&amp;HEIGHT=500&amp;LAYERS=MarineRegions:boundaries&amp;FORMAT=image/png&amp;BGCOLOR=0xffffff&amp;TRANSPARENT=TRUE&amp;EXCEPTIONS=XML"/>
+  <link rel="icon" type="image/png" title="Preview for Maritime boundaries, Marbound, version 7 (lines)" href="http://geo.vliz.be:80/geoserver/MarineRegions/ows?SERVICE=WMS&amp;&amp;SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetMap&amp;CRS=EPSG:4326&amp;BBOX=40,-69,65,12&amp;WIDTH=324&amp;HEIGHT=100&amp;LAYERS=MarineRegions:boundaries&amp;STYLES=Marbound_Boundaries_Type&amp;FORMAT=image/png&amp;BGCOLOR=0xffffff&amp;TRANSPARENT=TRUE&amp;EXCEPTIONS=XML"/>
+  <link rel="via" type="text/xml" title="Original GetCapabilities document" href="http://geo.vliz.be:80/geoserver/MarineRegions/ows?SERVICE=WMS&amp;&amp;SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetCapabilities"/>
+  <content type="html">
+        &lt;br/&gt;
+	&lt;img border='1' align='right' height='100'src='http://geo.vliz.be:80/geoserver/MarineRegions/ows?SERVICE=WMS&amp;&amp;SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetMap&amp;CRS=EPSG:4326&amp;BBOX=40,-69,65,12&amp;WIDTH=324&amp;HEIGHT=100&amp;LAYERS=MarineRegions:boundaries&amp;STYLES=Marbound_Boundaries_Type&amp;FORMAT=image/png&amp;BGCOLOR=0xffffff&amp;TRANSPARENT=TRUE&amp;EXCEPTIONS=XML'/&gt;
+	
+	&lt;br/&gt;
+	This resource is available from a OGC WMS Service (version 1.3.0) and it contains the following access points:
+	&lt;ul&gt;
+	&lt;li&gt;
+	&lt;a href='http://geo.vliz.be:80/geoserver/MarineRegions/ows?SERVICE=WMS&amp;&amp;SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetMap&amp;BBOX=40,-69,65,12&amp;CRS=EPSG:4326&amp;WIDTH=1620&amp;HEIGHT=500&amp;LAYERS=MarineRegions:boundaries&amp;FORMAT=image/png&amp;BGCOLOR=0xffffff&amp;TRANSPARENT=TRUE&amp;EXCEPTIONS=XML'&gt;
+	GetMap &lt;/a&gt; request in image/png (atom:link[@rel="enclosure"])
+	&lt;/li&gt;
+	
+	&lt;li&gt;
+	&lt;a href='http://geo.vliz.be:80/geoserver/MarineRegions/ows?SERVICE=WMS&amp;&amp;SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetCapabilities'&gt;
+	GetCapabilities &lt;/a&gt; request (atom:link[@rel="via"])
+	&lt;/li&gt;
+	&lt;/li&gt;
+	&lt;/ul&gt;
+	This dataset represents Exclusive Economic Zones (EEZ) of the world. Up to now, there was no global public domain cover available. Therefore, the Flanders Marine Institute decided to develop its own database. The database includes two global GIS-layers: one contains polylines that represent the maritime boundaries of the world countries, the other one is a polygon layer representing the Exclusive Economic Zone of countries. The database also contains digital information about treaties.
+	&lt;p style='font-size:small'&gt;OGC Context CITE Testing XSLT (Extensible Stylesheet Language Transformations) by Terradue Srl.&lt;/p&gt;
+	</content>
+  <owc:offering xmlns:owc="http://www.opengis.net/owc/1.0" code="http://www.opengis.net/spec/owc/1.0/req/atom/wms">
+    <owc:operation method="GET" code="GetCapabilities" href="http://geo.vliz.be:80/geoserver/MarineRegions/ows?SERVICE=WMS&amp;&amp;SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetCapabilities"/>
+    <owc:operation method="GET" code="GetMap" href="http://geo.vliz.be:80/geoserver/MarineRegions/ows?SERVICE=WMS&amp;&amp;SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetMap&amp;BBOX=40,-69,65,12&amp;CRS=EPSG:4326&amp;WIDTH=1620&amp;HEIGHT=500&amp;LAYERS=MarineRegions:boundaries&amp;FORMAT=image/png&amp;BGCOLOR=0xffffff&amp;TRANSPARENT=TRUE&amp;EXCEPTIONS=XML"/>
+    <owc:styleSet>
+      <owc:name>Marbound_Boundaries_Type</owc:name>
+      <owc:title/>
+      <owc:abstract/>
+      <owc:legendURL href="http://geo.vliz.be:80/geoserver/MarineRegions/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=boundaries" type="image/png"/>
+    </owc:styleSet>
+  </owc:offering>
+</entry>
+ 
+<entry xmlns="http://www.w3.org/2005/Atom">
+  <id>http://10.11.31.11:8080/geoserver/imarine/wfsimarine:kerneldensity/</id>
+  <title>Occurrences kernel density estimation</title>
+  <author xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:georss="http://www.georss.org/georss" xmlns:gml="http://www.opengis.net/gml" xmlns:owc="http://www.opengis.net/owc/1.0" xmlns:ows="http://www.opengis.net/ows">
+    <name>Claudius Ptolomaeus</name>
+    <email/>
+    <uri/>
+  </author>
+  <dc:publisher xmlns:dc="http://purl.org/dc/elements/1.1/">The ancient geographes INC</dc:publisher>
+  <updated>2013-03-21T16:27:06Z</updated>
+  <dc:rights xmlns:dc="http://purl.org/dc/elements/1.1/">Fee:NONE / Contraints:NONE</dc:rights>
+  <georss:where xmlns:georss="http://www.georss.org/georss">
+    <gml:Polygon xmlns:gml="http://www.opengis.net/gml">
+      <gml:exterior>
+        <gml:LinearRing>
+          <gml:posList>40 -69 40 12 65 12 65 -69 40 -69</gml:posList>
+        </gml:LinearRing>
+      </gml:exterior>
+    </gml:Polygon>
+  </georss:where>
+  <link rel="enclosure" type="text/xml; subtype=gml/3.1.1" title="WFS output for Occurrences kernel density estimation" href="http://10.11.31.11:8080/geoserver/imarine/wfs?&amp;SERVICE=WFS&amp;VERSION=1.1.0&amp;REQUEST=GetFeature&amp;BBOX=40,-69,65,12&amp;OUTPUTFORMAT=text/xml; subtype=gml/3.1.1&amp;TYPENAME=imarine:kerneldensity&amp;MAXFEATURES=10"/>
+  <link rel="describedby" type="text/xml" title="Description of Features" href="http://10.11.31.11:8080/geoserver/imarine/wfs?&amp;SERVICE=WFS&amp;VERSION=1.1.0&amp;REQUEST=describeFeatureType&amp;TYPENAME=imarine:kerneldensity"/>
+  <link rel="via" type="text/xml" title="Original GetCapabilities document" href="http://10.11.31.11:8080/geoserver/imarine/wfs?&amp;SERVICE=WFS&amp;VERSION=1.1.0&amp;REQUEST=GetCapabilities"/>
+  <content type="html">
+	&lt;br/&gt;
+	This resource is available from a OGC WFS Service (version 1.1.0) and it contains the following access points:
+	&lt;ul&gt;
+	&lt;li&gt;
+	&lt;a href='http://10.11.31.11:8080/geoserver/imarine/wfs?&amp;SERVICE=WFS&amp;VERSION=1.1.0&amp;REQUEST=GetFeature&amp;BBOX=40,-69,65,12&amp;OUTPUTFORMAT=text/xml; subtype=gml/3.1.1&amp;TYPENAME=imarine:kerneldensity&amp;MAXFEATURES=10'&gt;
+	GetFeature &lt;/a&gt; request in text/xml; subtype=gml/3.1.1 (atom:link[@rel="enclosure"])
+	&lt;/li&gt;
+	
+	&lt;li&gt;
+	&lt;a href='http://10.11.31.11:8080/geoserver/imarine/wfs?&amp;SERVICE=WFS&amp;VERSION=1.1.0&amp;REQUEST=GetCapabilities'&gt;
+	GetCapabilities &lt;/a&gt; request (atom:link[@rel="via"])
+	&lt;/li&gt;
+	&lt;/li&gt;
+	&lt;li&gt;
+	&lt;a href='http://10.11.31.11:8080/geoserver/imarine/wfs?&amp;SERVICE=WFS&amp;VERSION=1.1.0&amp;REQUEST=describeFeatureType&amp;TYPENAME=imarine:kerneldensity'&gt;
+	Describe Feature &lt;/a&gt; request for imarine:kerneldensity (atom:link[@rel="describedby"])
+	&lt;/li&gt;
+	&lt;/ul&gt;
+	Computes kernel density estimation contour lines from occurrences&#13;
+of observed individuals
+	&lt;p style='font-size:small'&gt;OGC Context CITE Testing XSLT (Extensible Stylesheet Language Transformations) by Terradue Srl.&lt;/p&gt;
+	</content>
+  <owc:offering xmlns:owc="http://www.opengis.net/owc/1.0" code="http://www.opengis.net/spec/owc/1.0/req/atom/wfs">
+    <owc:operation method="GET" code="GetCapabilities" href="http://10.11.31.11:8080/geoserver/imarine/wfs?&amp;SERVICE=WFS&amp;VERSION=1.1.0&amp;REQUEST=GetCapabilities"/>
+    <owc:operation method="GET" code="GetFeature" href="http://10.11.31.11:8080/geoserver/imarine/wfs?&amp;SERVICE=WFS&amp;VERSION=1.1.0&amp;REQUEST=GetFeature&amp;BBOX=40,-69,65,12&amp;OUTPUTFORMAT=text/xml; subtype=gml/3.1.1&amp;TYPENAME=imarine:kerneldensity&amp;MAXFEATURES=10">
+      <owc:result type="application/gml+xml; version=3.1">
+        <ola>sdsd</ola>
+        <wfs:FeatureCollection xmlns:ogc="http://www.opengis.net/ogc" xmlns:gml="http://www.opengis.net/gml" xmlns:imarine="http://www.imarine.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ows="http://www.opengis.net/ows" xmlns:wfs="http://www.opengis.net/wfs" numberOfFeatures="7" timeStamp="2013-03-21T19:27:09.485Z" xsi:schemaLocation="http://www.imarine.org http://10.11.31.11:8080/geoserver/imarine/wfs?service=WFS&amp;version=1.1.0&amp;request=DescribeFeatureType&amp;typeName=imarine%3Akerneldensity http://www.opengis.net/wfs http://10.11.31.11:8080/geoserver/schemas/wfs/1.1.0/wfs.xsd">
+          <gml:featureMembers>
+            <imarine:kerneldensity gml:id="kerneldensity.1">
+              <imarine:the_geom>
+                <gml:MultiSurface srsDimension="2" srsName="urn:x-ogc:def:crs:EPSG:4326">
+                  <gml:surfaceMember>
+                    <gml:Polygon srsDimension="2">
+                      <gml:exterior>
+                        <gml:LinearRing srsDimension="2">
+                          <gml:posList>40.22517929085786 -69.0 41.0 -69.7677810301855 42.0 -69.5874255301443 42.60178200836081 -69.0 43.0 -68.41227681351603 44.0 -68.96325482758758 45.0 -68.70500329236344 45.68133868444489 -68.0 45.95399777787428 -67.0 46.0 -66.04989919533824 46.03613923449896 -66.0 46.75279748814738 -65.0 46.0 -64.30015782906543 45.870577848637986 -64.0 45.87306513109812 -63.0 45.968171169202684 -62.0 46.0 -61.76074791704694 47.0 -61.21379025368051 47.19336041591534 -61.0 47.93460531569143 -60.0 47.79214203519386 -59.0 47.0 -58.1889692104905 46.80726802910584 -58.0 46.0 -57.17566401835796 45.7417922552096 -57.0 45.0 -56.32292226218877 44.0 -56.91312616740074 43.91582601886856 -57.0 43.14015239146035 -58.0 43.0 -58.68648245243114 42.69113595824416 -59.0 42.14732980753668 -60.0 42.05274966145042 -61.0 42.0 -61.68436458551466 41.74637455196323 -62.0 42.0 -62.56362972115189 42.01347436104532 -63.0 42.0 -63.211104775369684 41.5074973455035 -64.0 41.02676867090644 -65.0 41.0 -65.02610599391787 40.059295733404134 -66.0 40.04301314364823 -67.0 40.10232221397109 -68.0 40.22517929085786 -69.0</gml:posList>
+                        </gml:LinearRing>
+                      </gml:exterior>
+                    </gml:Polygon>
+                  </gml:surfaceMember>
+                  <gml:surfaceMember>
+                    <gml:Polygon srsDimension="2">
+                      <gml:exterior>
+                        <gml:LinearRing srsDimension="2">
+                          <gml:posList>47.809232558952026 -64.0 48.0 -64.26364232574416 48.204818687682526 -64.0 48.0 -63.839394851619396 47.809232558952026 -64.0</gml:posList>
+                        </gml:LinearRing>
+                      </gml:exterior>
+                    </gml:Polygon>
+                  </gml:surfaceMember>
+                  <gml:surfaceMember>
+                    <gml:Polygon srsDimension="2">
+                      <gml:exterior>
+                        <gml:LinearRing srsDimension="2">
+                          <gml:posList>46.47609649822104 -55.0 47.0 -55.53399384173632 47.87314146394587 -55.0 48.0 -54.94533701567436 48.761241891876395 -54.0 48.32116954122174 -53.0 48.0 -52.60423556141459 47.41660114950024 -53.0 47.0 -53.17814887533412 46.38962648405627 -54.0 46.47609649822104 -55.0</gml:posList>
+                        </gml:LinearRing>
+                      </gml:exterior>
+                    </gml:Polygon>
+                  </gml:surfaceMember>
+                  <gml:surfaceMember>
+                    <gml:Polygon srsDimension="2">
+                      <gml:exterior>
+                        <gml:LinearRing srsDimension="2">
+                          <gml:posList>58.38183230020735 10.0 59.0 9.39990041762861 59.92827219990196 10.0 60.0 10.082021105974693 60.56622818414185 11.0 60.0 11.578392438397664 59.0 11.914832876892646 58.082320461486255 11.0 58.38183230020735 10.0</gml:posList>
+                        </gml:LinearRing>
+                      </gml:exterior>
+                    </gml:Polygon>
+                  </gml:surfaceMember>
+                  <gml:surfaceMember>
+                    <gml:Polygon srsDimension="2">
+                      <gml:exterior>
+                        <gml:LinearRing srsDimension="2">
+                          <gml:posList>64.27605251719672 11.0 65.0 10.079461788364986 65.66127218381556 11.0 65.41171278203477 12.0 65.0 12.398193003247112 64.585452712514 12.0 64.27605251719672 11.0</gml:posList>
+                        </gml:LinearRing>
+                      </gml:exterior>
+                    </gml:Polygon>
+                  </gml:surfaceMember>
+                </gml:MultiSurface>
+              </imarine:the_geom>
+              <imarine:level>8.15143484209E-4</imarine:level>
+              <imarine:percnt>98.0</imarine:percnt>
+              <imarine:rl_prcn>97.9664964780311</imarine:rl_prcn>
+            </imarine:kerneldensity>
+            <imarine:kerneldensity gml:id="kerneldensity.2">
+              <imarine:the_geom>
+                <gml:MultiSurface srsDimension="2" srsName="urn:x-ogc:def:crs:EPSG:4326">
+                  <gml:surfaceMember>
+                    <gml:Polygon srsDimension="2">
+                      <gml:exterior>
+                        <gml:LinearRing srsDimension="2">
+                          <gml:posList>40.70025967805704 -69.0 41.0 -69.29701701368347 41.708051213337605 -69.0 42.0 -68.96265402626116 42.91082051650599 -68.0 43.0 -67.97171770821637 43.18381167122373 -68.0 44.0 -68.71723693821708 45.0 -68.07038134460684 45.06801887773195 -68.0 45.82860340480289 -67.0 45.89097388576125 -66.0 45.984965012430166 -65.0 45.53894341874595 -64.0 45.60130501875828 -63.0 45.8474600211321 -62.0 45.98001871111345 -61.0 46.0 -60.96448029190252 47.0 -60.78778054059493 47.71504692056306 -60.0 47.31886836535081 -59.0 47.0 -58.67352816715909 46.31306052042892 -58.0 46.0 -57.6803204857413 45.06276079207842 -57.0 45.0 -56.94239912487935 44.9133377370985 -57.0 44.0 -57.33241408074226 43.43556504567613 -58.0 43.09925585878646 -59.0 43.0 -59.289622460019785 42.43920791791336 -60.0 42.1898405424088 -61.0 42.04792141060878 -62.0 42.111544681830466 -63.0 42.049876117720146 -64.0 42.0 -64.07246809901784 41.16142473925122 -65.0 41.0 -65.15742855802648 40.18614290115111 -66.0 40.13772655535058 -67.0 40.31607464075198 -68.0 40.70025967805704 -69.0</gml:posList>
+                        </gml:LinearRing>
+                      </gml:exterior>
+                    </gml:Polygon>
+                  </gml:surfaceMember>
+                  <gml:surfaceMember>
+                    <gml:Polygon srsDimension="2">
+                      <gml:exterior>
+                        <gml:LinearRing srsDimension="2">
+                          <gml:posList>47.4706218109229 -54.0 48.0 -54.220739042438105 48.17775227616227 -54.0 48.0 -53.718786520411754 47.4706218109229 -54.0</gml:posList>
+                        </gml:LinearRing>
+                      </gml:exterior>
+                    </gml:Polygon>
+                  </gml:surfaceMember>
+                  <gml:surfaceMember>
+                    <gml:Polygon srsDimension="2">
+                      <gml:exterior>
+                        <gml:LinearRing srsDimension="2">
+                          <gml:posList>58.31773590091484 11.0 59.0 10.06717716259316 59.901772314122105 11.0 59.0 11.680147701208988 58.31773590091484 11.0</gml:posList>
+                        </gml:LinearRing>
+                      </gml:exterior>
+                    </gml:Polygon>
+                  </gml:surfaceMember>
+                </gml:MultiSurface>
+              </imarine:the_geom>
+              <imarine:level>0.002344015433856</imarine:level>
+              <imarine:percnt>95.0</imarine:percnt>
+              <imarine:rl_prcn>95.11589741921509</imarine:rl_prcn>
+            </imarine:kerneldensity>
+            <imarine:kerneldensity gml:id="kerneldensity.3">
+              <imarine:the_geom>
+                <gml:MultiSurface srsDimension="2" srsName="urn:x-ogc:def:crs:EPSG:4326">
+                  <gml:surfaceMember>
+                    <gml:Polygon srsDimension="2">
+                      <gml:exterior>
+                        <gml:LinearRing srsDimension="2">
+                          <gml:posList>40.939245323636406 -68.0 41.0 -68.11065145587672 42.0 -68.54413069241889 42.514832312332 -68.0 43.0 -67.84613440705186 43.9753503510756 -68.0 44.0 -68.02172615158041 44.03118486385638 -68.0 45.0 -67.56834699983729 45.463030492843075 -67.0 45.566876213865626 -66.0 45.49840936090604 -65.0 45.0 -64.3016992634046 44.90669704235227 -64.0 44.93045241535833 -63.0 45.0 -62.8538344536326 45.495540514496405 -62.0 45.61951077056358 -61.0 46.0 -60.323623894306614 47.0 -60.08257337665069 47.07494960290588 -60.0 47.0 -59.8678415688593 46.59867517454787 -59.0 46.0 -58.40561235487588 45.56672330045875 -58.0 45.0 -57.49412219541007 44.2518431403776 -58.0 44.0 -58.193289237283075 43.46866594380415 -59.0 43.093183315519894 -60.0 43.0 -60.24924280516399 42.58951328152412 -61.0 42.21777331920059 -62.0 42.397457453417495 -63.0 42.34872695113282 -64.0 42.0 -64.50668697525099 41.55399906146448 -65.0 41.0 -65.540284430992 40.5559512693521 -66.0 40.413852643544075 -67.0 40.939245323636406 -68.0</gml:posList>
+                        </gml:LinearRing>
+                      </gml:exterior>
+                    </gml:Polygon>
+                  </gml:surfaceMember>
+                </gml:MultiSurface>
+              </imarine:the_geom>
+              <imarine:level>0.006801266241497</imarine:level>
+              <imarine:percnt>90.0</imarine:percnt>
+              <imarine:rl_prcn>90.12299916313668</imarine:rl_prcn>
+            </imarine:kerneldensity>
+            <imarine:kerneldensity gml:id="kerneldensity.4">
+              <imarine:the_geom>
+                <gml:MultiSurface srsDimension="2" srsName="urn:x-ogc:def:crs:EPSG:4326">
+                  <gml:surfaceMember>
+                    <gml:Polygon srsDimension="2">
+                      <gml:exterior>
+                        <gml:LinearRing srsDimension="2">
+                          <gml:posList>41.972117969396066 -68.0 42.0 -68.01403379739344 42.01327815626563 -68.0 43.0 -67.68707202598175 44.0 -67.8665963503558 45.0 -67.01370392601348 45.011192968142254 -67.0 45.1563777884144 -66.0 45.0 -65.33423032455993 44.88675341693869 -65.0 44.63967594498599 -64.0 44.56501713799714 -63.0 45.0 -62.085812857302166 45.049803269564734 -62.0 45.162895512907404 -61.0 45.41906631088564 -60.0 45.90319990364176 -59.0 45.0 -58.17871038341049 44.0 -58.90367545958035 43.936556556404426 -59.0 43.43932669751062 -60.0 43.04463958676954 -61.0 43.0 -61.06694026059398 42.43290581499734 -62.0 42.75959131839222 -63.0 42.727248018078946 -64.0 42.01581393956617 -65.0 42.0 -65.00967961414234 41.00490689849081 -66.0 41.0 -66.07140466361855 40.763590806630724 -67.0 41.0 -67.42274277864335 41.972117969396066 -68.0</gml:posList>
+                        </gml:LinearRing>
+                      </gml:exterior>
+                    </gml:Polygon>
+                  </gml:surfaceMember>
+                </gml:MultiSurface>
+              </imarine:the_geom>
+              <imarine:level>0.012446769424769</imarine:level>
+              <imarine:percnt>80.0</imarine:percnt>
+              <imarine:rl_prcn>79.52730590882092</imarine:rl_prcn>
+            </imarine:kerneldensity>
+            <imarine:kerneldensity gml:id="kerneldensity.5">
+              <imarine:the_geom>
+                <gml:MultiSurface srsDimension="2" srsName="urn:x-ogc:def:crs:EPSG:4326">
+                  <gml:surfaceMember>
+                    <gml:Polygon srsDimension="2">
+                      <gml:exterior>
+                        <gml:LinearRing srsDimension="2">
+                          <gml:posList>40.8110134153035 -67.0 41.0 -67.33794250046834 42.0 -67.98623799119518 43.0 -67.6655040249793 44.0 -67.84850753494955 44.97912659636886 -67.0 45.0 -66.64405832109757 45.10071641586313 -66.0 45.0 -65.5712055005984 44.8064595986203 -65.0 44.60346932430719 -64.0 44.51546608528793 -63.0 44.99387682285762 -62.0 45.0 -61.9026083236483 45.10098094663091 -61.0 45.288064749539345 -60.0 45.764182008051186 -59.0 45.0 -58.3051208864545 44.0 -58.982929701426436 43.98869087545012 -59.0 43.486261873254506 -60.0 43.07664588552277 -61.0 43.0 -61.11493600012112 42.46207662115394 -62.0 42.80869471738731 -63.0 42.77857343328032 -64.0 42.036626336814095 -65.0 42.0 -65.02241875317182 41.0177074320842 -66.0 41.0 -66.25767666355637 40.8110134153035 -67.0</gml:posList>
+                        </gml:LinearRing>
+                      </gml:exterior>
+                    </gml:Polygon>
+                  </gml:surfaceMember>
+                </gml:MultiSurface>
+              </imarine:the_geom>
+              <imarine:level>0.013212269208545</imarine:level>
+              <imarine:percnt>75.0</imarine:percnt>
+              <imarine:rl_prcn>75.64397494872925</imarine:rl_prcn>
+            </imarine:kerneldensity>
+            <imarine:kerneldensity gml:id="kerneldensity.6">
+              <imarine:the_geom>
+                <gml:MultiSurface srsDimension="2" srsName="urn:x-ogc:def:crs:EPSG:4326">
+                  <gml:surfaceMember>
+                    <gml:Polygon srsDimension="2">
+                      <gml:exterior>
+                        <gml:LinearRing srsDimension="2">
+                          <gml:posList>41.45782683357825 -67.0 42.0 -67.49776290782034 43.0 -67.04942738181981 44.0 -67.3318116820075 44.38289069861795 -67.0 44.52647605562095 -66.0 44.0 -65.38370715033791 43.48901274854577 -65.0 43.0 -64.5777397872391 42.63111962486358 -65.0 42.0 -65.38630440067013 41.38334677742615 -66.0 41.45782683357825 -67.0</gml:posList>
+                        </gml:LinearRing>
+                      </gml:exterior>
+                    </gml:Polygon>
+                  </gml:surfaceMember>
+                  <gml:surfaceMember>
+                    <gml:Polygon srsDimension="2">
+                      <gml:exterior>
+                        <gml:LinearRing srsDimension="2">
+                          <gml:posList>43.98250285738996 -62.0 44.0 -62.009829608187864 44.00623409647939 -62.0 44.01046192621451 -61.0 44.0 -60.984094989665465 43.990886064462345 -61.0 43.98250285738996 -62.0</gml:posList>
+                        </gml:LinearRing>
+                      </gml:exterior>
+                    </gml:Polygon>
+                  </gml:surfaceMember>
+                </gml:MultiSurface>
+              </imarine:the_geom>
+              <imarine:level>0.035078298289069</imarine:level>
+              <imarine:percnt>50.0</imarine:percnt>
+              <imarine:rl_prcn>49.44039009124569</imarine:rl_prcn>
+            </imarine:kerneldensity>
+            <imarine:kerneldensity gml:id="kerneldensity.7">
+              <imarine:the_geom>
+                <gml:MultiSurface srsDimension="2" srsName="urn:x-ogc:def:crs:EPSG:4326">
+                  <gml:surfaceMember>
+                    <gml:Polygon srsDimension="2">
+                      <gml:exterior>
+                        <gml:LinearRing srsDimension="2">
+                          <gml:posList>41.99665297669148 -67.0 42.0 -67.00307370604106 42.00667852739288 -67.0 43.0 -66.79712421242559 44.0 -66.05606400510446 44.01131500110123 -66.0 44.0 -65.98675466016326 43.0 -65.0975059359763 42.0 -65.75710893948396 41.75593835874796 -66.0 41.99665297669148 -67.0</gml:posList>
+                        </gml:LinearRing>
+                      </gml:exterior>
+                    </gml:Polygon>
+                  </gml:surfaceMember>
+                </gml:MultiSurface>
+              </imarine:the_geom>
+              <imarine:level>0.057360086220623</imarine:level>
+              <imarine:percnt>25.0</imarine:percnt>
+              <imarine:rl_prcn>26.745688801924246</imarine:rl_prcn>
+            </imarine:kerneldensity>
+          </gml:featureMembers>
+        </wfs:FeatureCollection>
+      </owc:result>
+    </owc:operation>
+  </owc:offering>
+</entry>
+</feed>
+

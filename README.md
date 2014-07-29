@@ -1,1 +1,2 @@
-# OGC OWS Context demonstration
+ows-context-demo
+================
