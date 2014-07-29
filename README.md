@@ -18,7 +18,7 @@ The goal is to support use cases such as the distribution of search results, the
 
 ### Where is the demo?
 
-The demonstration is live at [terradue.github.io/ows-context-demo/](http://terradue.github.io/ows-context-demo/)
+The demonstration is live at [terradue.github.io/ows-context-demo/](http://terradue.github.io/ows-context-demo)
 
 ### Questions, bugs, and suggestions
 
