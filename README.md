@@ -1,6 +1,6 @@
 ## OGC OWS Context demo
 
-The [OGC Web Services Context Document](http://www.opengeospatial.org/standards/owc (OWS Context)) describes the use cases, requirements and conceptual model for the OWS Context encoding standard. 
+The [OGC Web Services Context Document](http://www.opengeospatial.org/standards/owc) (OWS Context) describes the use cases, requirements and conceptual model for the OWS Context encoding standard. 
 
 ![OWS Context demo](https://github.com/Terradue/ows-context-demo/raw/master/src/main/resources/ows-context-imarine.png)
 
