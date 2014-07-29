@@ -1,6 +1,6 @@
 ## OGC OWS Context demo
 
-The [OGC Web Services Context Document](http://www.opengeospatial.org/standards/owc) (OWS Context) describes the use cases, requirements and conceptual model for the OWS Context encoding standard. 
+The [OGC Web Services Context Document](http://www.opengeospatial.org/standards/owc (OWS Context)) describes the use cases, requirements and conceptual model for the OWS Context encoding standard. 
 
 ![OWS Context demo](https://github.com/Terradue/ows-context-demo/raw/master/src/main/resources/ows-context-imarine.png)
 
@@ -8,9 +8,9 @@ This standard provides a core model, which is extended and encoded as defined in
 
 The OGC Web Services Context Document was created to allow a set of configured information resources (service set) to be passed between applications primarily as a collection of services. OWS Context is developed to support in-line content as well. 
 
-The goal is to support use cases such as the distribution of search results, the exchange of a set of resources such as [OGC Web Feature Service (WFS)](http://www.opengeospatial.org/standards/wfs), Web Map Service (WMS), Web Map Tile Service (WMTS), Web Coverage Service (WCS) and others in a ‘common operating picture’. Additionally OWS Context can deliver a set of configured processing services (Web Processing Service (WPS)) parameters to allow the processing to be reproduced on different nodes. 
+The goal is to support use cases such as the distribution of search results, the exchange of a set of resources such as OGC [Web Feature Service (WFS)](http://www.opengeospatial.org/standards/wfs), [Web Map Service (WMS)](http://www.opengeospatial.org/standards/wms), [Web Map Tile Service (WMTS)](http://www.opengeospatial.org/standards/wmts), [Web Coverage Service (WCS)](http://www.opengeospatial.org/standards/wcs) and others in a ‘common operating picture’. Additionally OWS Context can deliver a set of configured processing services ([Web Processing Service (WPS)](http://www.opengeospatial.org/standards/wps)) parameters to allow the processing to be reproduced on different nodes. 
 
-*Find out more about OGC OWS Context:*
+**Find out more about OGC OWS Context:**
 
 * [OGC® OWS Context Conceptual Model](https://portal.opengeospatial.org/files/?artifact_id=55182)
 * [OGC® OWS Context Atom Encoding Standard](https://portal.opengeospatial.org/files/?artifact_id=55183)
