@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<feed xmlns="http://www.w3.org/2005/Atom" 
+	xmlns:dc="http://purl.org/dc/elements/1.1/" 
+	xmlns:georss="http://www.georss.org/georss" 
+	xmlns:gml="http://www.opengis.net/gml" 
+	xmlns:owc="http://www.opengis.net/owc/1.0" 
+	xmlns:awd="http://www.awila.co.uk/awila/2.0" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xml:lang="en">
+	<link rel="profile"
+		href="http://www.opengis.net/spec/owc-atom/1.0/req/core"
+		title="This file is compliant with version 1.0 of OGC Context"/>
+	<id>http://www.opengis.net/owc/1.0/demo/spill_demo</id>
+	<title>OWS-10 Oopen-Mobility Oil Spill Demo</title>
+	<subtitle>An oil spill has happend!</subtitle>
+	<updated>2014-03-19T10:30:00Z</updated>
+	<author>
+		<name>OWS-10 Team</name>
+		<uri>https://portal.opengeospatial.org/wiki/OWS10/DemoPlan</uri>
+	</author>
+	<dc:publisher>OGC</dc:publisher>
+	<rights>Copyright (c) 2014.  Some rights reserved. This feed licensed under a Creative Commons Attribution 3.0 License.
+	</rights>
+	<georss:where>
+		<gml:Envelope srsName="EPSG:4326">
+			<gml:lowerCorner>-121.95459 36.610567</gml:lowerCorner>
+			<gml:upperCorner>-121.87717 36.653684</gml:upperCorner>
+		</gml:Envelope>
+	</georss:where>
+	
+	<category term="owc" label="This file is compliant with version 1.0 of OGC Context"/>
+	<category term="spill" label="Oil spill demo"/>
+	<category term="ogc" label="Open Geospatial Consortium"/>
+	<category term="ows10" label="Open Web Services Test-bed 10"/>
+	<entry>
+		<id>https://portal.opengeospatial.org/wiki/pub/OWS10/DataSources/aoi.kml/</id>
+		<title>Area of Interest</title>
+		<updated>2014-03-19T10:30:00Z</updated>
+		<content type="text">Area of Interest</content>
+		<category scheme="http://www.opengis.net/spec/owc/active" term="true"/>
+		
+		<!-- GML2 Offering -->
+		<owc:offering code="http://www.opengis.net/spec/owc-atom/1.0/req/gml">
+			<owc:styleSet>
+				<owc:name>AWD Styling</owc:name>
+				<owc:title>Awila 2D to 3D Style information</owc:title>
+				<awd:Colour>#ff66ccff</awd:Colour>
+				<awd:LineWidth>2</awd:LineWidth>
+				<awd:lineStyleID>1</awd:lineStyleID>
+				<awd:FillPoly>false</awd:FillPoly>
+			</owc:styleSet>
+			<owc:content type="application/gml+xml">
+				<ogr:FeatureCollection
+				     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+				     xsi:schemaLocation="http://ogr.maptools.org/aoi.xsd"
+				     xmlns:ogr="http://ogr.maptools.org/"
+				     xmlns:gml="http://www.opengis.net/gml">
+				  <gml:boundedBy>
+				    <gml:Box>
+				      <gml:coord><gml:X>-122.0875832951594</gml:X><gml:Y>36.56643366087329</gml:Y></gml:coord>
+				      <gml:coord><gml:X>-121.8172982728087</gml:X><gml:Y>36.74460050711954</gml:Y></gml:coord>
+				    </gml:Box>
+				  </gml:boundedBy>                    
+				  <gml:featureMember>
+				    <ogr:OWS_10_AOI fid="aoi.1">
+				      <ogr:geometryProperty><gml:Polygon srsName="EPSG:4326"><gml:outerBoundaryIs><gml:LinearRing><gml:coordinates>-121.8224543187215,36.744600507119543 -122.0875832951594,36.728344920904739,0 -122.05683323915579,36.566433660873287 -121.8172982728087,36.581141649632841 -121.8224543187215,36.744600507119543</gml:coordinates></gml:LinearRing></gml:outerBoundaryIs></gml:Polygon></ogr:geometryProperty>
+				      <ogr:Name>OWS-10 AOI</ogr:Name>
+				      <ogr:Description>OWS-10 area of interest for CCI-OpenMobility demo</ogr:Description>
+				    </ogr:OWS_10_AOI>
+				  </gml:featureMember>
+				</ogr:FeatureCollection>
+			</owc:content>
+		</owc:offering>
+		
+		<!-- Original KML Offering -->
+		<owc:offering code="http://www.opengis.net/spec/owc-atom/1.0/req/kml">
+			<owc:content type="application/vnd.google-earth.kml+xml" href="https://portal.opengeospatial.org/wiki/pub/OWS10/DataSources/aoi.kml"/>
+		</owc:offering>
+	</entry>
+	
+	<entry>
+		<id>https://portal.opengeospatial.org/wiki/pub/OWS10/DataSources/spill.kml/</id>
+		<title>Spill Areas</title>
+		<updated>2014-03-19T10:30:00Z</updated>
+		<content type="text">Spill Area and Ship Location</content>
+		<category scheme="http://www.opengis.net/spec/owc/active" term="true"/>
+		
+		<!-- GML2 Offering -->
+		<owc:offering code="http://www.opengis.net/spec/owc-atom/1.0/req/gml">
+			<owc:styleSet>
+				<owc:name>AWD Styling</owc:name>
+				<owc:title>Awila 2D to 3D Style information</owc:title>
+				<awd:Colour>#4C000000</awd:Colour>
+				<awd:LineWidth>1</awd:LineWidth>
+				<awd:lineStyleID>2</awd:lineStyleID>
+				<awd:FillPoly>true</awd:FillPoly>
+			</owc:styleSet>
+			<owc:content type="application/gml+xml">
+				<ogr:FeatureCollection
+				     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+				     xsi:schemaLocation="http://ogr.maptools.org/spill.xsd"
+				     xmlns:ogr="http://ogr.maptools.org/"
+				     xmlns:gml="http://www.opengis.net/gml">
+				  <gml:boundedBy>
+				    <gml:Box>
+				      <gml:coord><gml:X>-121.9545936584473</gml:X><gml:Y>36.61056721141357</gml:Y></gml:coord>
+				      <gml:coord><gml:X>-121.8771743774414</gml:X><gml:Y>36.65368463203463</gml:Y></gml:coord>
+				    </gml:Box>
+				  </gml:boundedBy>     
+				  <gml:featureMember>
+				    <ogr:spill fid="spill.1">
+				      <ogr:geometryProperty><gml:Polygon srsName="EPSG:4326"><gml:outerBoundaryIs><gml:LinearRing><gml:coordinates>-121.87837600708008,36.614838703217494 -121.88129425048828,36.627376231725002 -121.90549850463867,36.638258806217301 -121.91047668457031,36.634815119758642 -121.91150665283203,36.629855940856999 -121.90824508666992,36.625309746501614 -121.90017700195312,36.622416574109025 -121.89382553100586,36.619247736893186 -121.88987731933594,36.615940985273667 -121.88507080078125,36.612358510976719 -121.88198089599609,36.611945137847577 -121.87957763671875,36.612634091831744 -121.87837600708008,36.614838703217494</gml:coordinates></gml:LinearRing></gml:outerBoundaryIs></gml:Polygon></ogr:geometryProperty>
+				      <ogr:Name>day 1</ogr:Name>
+				      <ogr:Description></ogr:Description>
+				    </ogr:spill>
+				  </gml:featureMember>
+				  <gml:featureMember>
+				    <ogr:spill fid="spill.2">
+				      <ogr:geometryProperty><gml:Polygon srsName="EPSG:4326"><gml:outerBoundaryIs><gml:LinearRing><gml:coordinates>-121.87717437744141,36.617318815684101 -121.88026428222656,36.63233557020224 -121.89056396484375,36.63839655047407 -121.9068717956543,36.645421180998035 -121.92747116088867,36.653684632034633 -121.93811416625977,36.652445170907015 -121.94326400756836,36.650241635195314 -121.95459365844727,36.641564600406731 -121.94755554199219,36.638672038248821 -121.93845748901367,36.637432335504812 -121.93210601806641,36.637156843297113 -121.92729949951172,36.635503869363951 -121.9233512878418,36.633988612105384 -121.92214965820312,36.629580421560163 -121.91768646240234,36.626962939112772 -121.91287994384766,36.622829891099286 -121.90618515014648,36.62076328398684 -121.90343856811523,36.6217277075339 -121.90189361572266,36.619385515132834 -121.89022064208984,36.612634091831744 -121.88421249389648,36.610567211413574 -121.87803268432617,36.611945137847577 -121.87717437744141,36.617318815684101</gml:coordinates></gml:LinearRing></gml:outerBoundaryIs></gml:Polygon></ogr:geometryProperty>
+				      <ogr:Name>day 2</ogr:Name>
+				      <ogr:Description></ogr:Description>
+				    </ogr:spill>
+				  </gml:featureMember>
+				</ogr:FeatureCollection>
+			</owc:content>
+		</owc:offering>
+		
+		<!-- Original KML Offering -->
+		<owc:offering code="http://www.opengis.net/spec/owc-atom/1.0/req/kml">
+			<owc:content type="application/vnd.google-earth.kml+xml" href="https://portal.opengeospatial.org/wiki/pub/OWS10/DataSources/spill.kml"/>
+		</owc:offering>
+	</entry>
+	
+	<entry>
+		<id>https://portal.opengeospatial.org/wiki/pub/OWS10/DataSources/spill_ship/</id>
+		<title>Ship Location</title>
+		<updated>2014-03-19T10:30:00Z</updated>
+		<content type="text">Ship Location</content>
+		<category scheme="http://www.opengis.net/spec/owc/active" term="true"/>
+		
+		<!-- GML2 Offering -->
+		<owc:offering code="http://www.opengis.net/spec/owc-atom/1.0/req/gml">
+			<owc:styleSet>
+				<owc:name>AWD Styling</owc:name>
+				<owc:title>Awila 2D to 3D Style information</owc:title>
+				<awd:IntShape>Cube</awd:IntShape>
+				<awd:ImageName>geocode-71.png</awd:ImageName>
+				<awd:Scale>5</awd:Scale>
+				<awd:HeightOffset>1</awd:HeightOffset>
+			</owc:styleSet>
+			<owc:content type="application/gml+xml">
+				<ogr:FeatureCollection
+				     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+				     xsi:schemaLocation="http://ogr.maptools.org/spill.xsd"
+				     xmlns:ogr="http://ogr.maptools.org/"
+				     xmlns:gml="http://www.opengis.net/gml">
+				  <gml:featureMember>
+				    <ogr:spillShip fid="ship.1">
+				      <ogr:geometryProperty><gml:Point srsName="EPSG:4326">
+				      	<gml:coordinates>-121.88352584838867,36.612220720179877</gml:coordinates>
+				      </gml:Point></ogr:geometryProperty>
+				      <ogr:Name>Ship</ogr:Name>
+				      <ogr:Description>Ship location</ogr:Description>
+				    </ogr:spillShip>
+				  </gml:featureMember>
+				</ogr:FeatureCollection>
+			</owc:content>
+		</owc:offering>
+	</entry>
+</feed>

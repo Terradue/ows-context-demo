@@ -1,0 +1,643 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>OGC Context Document Editor</title>
+<link rel="stylesheet" href="theme/default/style.css">
+<link href="css/codemirror.css" type="text/css" rel="stylesheet" />
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<style>
+        body { padding-top: 60px;padding-bottom: 40px;}
+        #map {height: 450px;background-color: #eee;}
+        .olControlAttribution { bottom: 3px; left: 10px;
+            line-height: 9px; font-size: 9px; color: #ccc;}
+        img.olTileImage {
+            max-width: none;
+        }
+        
+        .CodeMirror{
+        	width:auto;
+        	height:400px;
+        }
+        .CodeMirror-scroll{
+         overflow-x: auto; overflow-y: hidden;	
+        	
+        }
+    </style>
+</head>
+<body>
+<div class="navbar navbar-inverse navbar-fixed-top"><div class="navbar-inner"><div class="container-fluid"><p class="brand">OGC Context Document Editor</p></div></div></div>
+
+<div class="container-fluid" ng-controller="AlertsCtrl">
+<div class="row-fluid">
+
+	<ul class="nav nav-tabs" id="pagetabs">
+		<li class="active"><a href="#source" data-toggle="tab">Source</a></li>
+		<li><a href="#result" >View</a></li>
+		<li class="disabled"><a href="#settings" data-toggle="tab">Settings</a></li>
+	</ul>
+ 
+	<div class="tab-content">
+		<div class="tab-pane active" id="source">
+			<select id="inputfile" onchange="loadfile(this.value)">
+				<option value=""/>
+				<option value="examples/Hurricane-Tomas.xml">Hurricane-Thomas.xml</option>
+				<option value="examples/meris_borders_users.atom">meris_borders_users.atom</option>
+                <option value="examples/Test.xml">latest roger's test</option>
+                <option value="examples/imarine.xml">imarine</option>
+                <option value="examples/spill.xml">spill</option>
+			</select>
+			<textarea id="context" style="width:1000px;height:1000px" onchange="sourceChanged=true">
+			
+			</textarea>
+		</div>
+		<div class="tab-pane" id="result">
+ 
+			<div class="span7"><div id="map"></div></div>
+			<div class="span5">
+				<h2 id="title">[title]</h2>				
+				<div class="accordion" id="accordion2">
+					<div class="accordion-group" style="display:none">
+						<div class="accordion-heading"><a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse1">title</a></div>
+						<div class="accordion-body collapse" id="collapse1"><div class="accordion-inner">abstract</div></div>
+					</div>
+					<div class="accordion-group">
+						<div class="accordion-heading"><a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse2">title</a></div>
+						<div class="accordion-body collapse" id="collapse2"><div class="accordion-inner">abstract</div></div>
+					</div>
+				</div>
+				<h5 id="author">[authour]</h2>
+			</div>
+		</div>
+        <div class="tab-pane" id="settings">...</div>
+	</div>
+</div></div>
+
+<script type="text/javascript" src="js/OpenLayers.js"></script>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://raw.github.com/douglascrockford/JSON-js/master/cycle.js"></script>
+    
+<script src="js/codemirror.js"></script>
+<script src="js/xml.js"></script>
+
+
+
+<script type="text/javascript">
+function loadfile(url){
+	if (url){
+	$("#context").load( url,function(data) {	
+		editor.setValue(data)
+	});
+	}else{
+		editor.setValue("")
+	}
+	
+}
+
+var sourceChanged = true;
+var editor = CodeMirror.fromTextArea(document.getElementById("context"), {
+        lineNumbers: true,
+        matchBrackets: true,
+        extraKeys: {"Enter": "newlineAndIndentContinueComment"}
+      });
+
+editor.on("change", function() {
+        sourceChanged = true
+ });
+
+
+//editor.change(function (){ sourceChanged = true; alert(this.value) });
+    var owc;
+   /* 
+    this moved to version 2 
+$('#pagetabs a[href="#json"]').click(function (e) {
+    e.preventDefault();
+    $(this).tab('show');
+    if (sourceChanged){
+        $("#json_text").val(JSON.stringify(JSON.decycle(owc)));
+    }
+                                     
+})*/
+    
+    
+$('#pagetabs a[href="#result"]').click(function (e) {
+      e.preventDefault();
+      $(this).tab('show');
+      if (sourceChanged){
+	      $("#map").html("");
+	      $('#accordion2').html("");
+	      var map = new OpenLayers.Map({
+		  div: "map",
+		  numZoomLevels: 6, maxResolution: 'auto', units: "dd",
+		  theme: null,
+		  allOverlays: true,
+		  controls: [
+		      new OpenLayers.Control.Attribution(),
+		      new OpenLayers.Control.TouchNavigation({
+			  dragPanOptions: {
+			      enableKinetic: true
+			  }
+		      }),
+		      new OpenLayers.Control.Zoom()
+		  ],
+		  center: new OpenLayers.LonLat(0, 0),
+		  zoom: 1
+	      });
+	/*
+	     var basemap = new OpenLayers.Layer.WMS(
+		      "Natural Earth",
+		      "http://demo.opengeo.org/geoserver/wms",
+		      { layers: "topp:naturalearth" }
+	      )
+	      map.addLayer( basemap );
+	  */
+	  
+	      var text = editor.getValue();
+	      
+	      owc = readOWSC ( text );
+	      $("#title").html(owc.title);
+	      $("#author").html(owc.authors[0].name);
+	      for (var i=0, ii=owc.entries.length; i<ii; i++) {
+	      	      
+	      	     var html = $('#accordion2').html();
+	      	     html +='<div class="accordion-group">';
+	      	     html += '<div class="accordion-heading">';
+	      	     html += '<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse'+i+'">'+  owc.entries[i].title +'</a></div>';
+	      	     html +=   '<div class="accordion-body collapse" id="collapse'+i+'"><div class="accordion-inner">'+ owc.entries[i].content + "</div></div></div>";
+	      	     $('#accordion2').html(html);
+	      	     
+		      if (owc.entries[i].offerings.length){
+			      if (owc.entries[i].offerings[0].layer) map.addLayer(owc.entries[i].offerings[0].layer);
+		      }else{
+			      // just add the geometry 	    
+			    
+		      }
+	      }
+	     // $(".collapse").collapse();
+	      map.updateSize();
+	      map.zoomToExtent(owc.geometry.getBounds(),true);
+	      sourceChanged=false;
+      }
+      
+})
+
+      
+      
+
+var namespaces= {
+        atom: "http://www.w3.org/2005/Atom",
+        georss: "http://www.georss.org/georss",
+        owc: "http://www.opengis.net/owc/1.0",
+        dc: "http://purl.org/dc/elements/1.1/"     
+}
+
+
+function readOWSC ( doc ) {
+	if (typeof doc == "string") {
+            doc = OpenLayers.Format.XML.prototype.read.apply(this, [doc]);
+        }
+        var context = {};
+        context.title = getFirstChildValue(doc, namespaces.atom,"title",null);
+        parsePersonConstructs(doc, "author", context);
+        context.publisher = getFirstChildValue(doc, namespaces.dc,"publisher",null);
+        var geometry = this.parseLocations(doc,namespaces.georss);
+        if ( geometry.length > 0 ) context.geometry = geometry[0]
+        else context.geometry = OpenLayers.Geometry.fromWKT("POLYGON((-180 -90,-180 90,180 90,180 -90,-180 -90))");
+        
+        var entries = this.getElementsByTagNameNS( doc, namespaces.atom, "entry" );
+        
+        context.entries = [];
+        for (var i=0, ii=entries.length; i<ii; i++) {
+            context.entries.push(parseEntry(entries[i]));
+        }        
+        return context;	
+}
+
+
+function parseEntry(node){
+	var entry = {};
+	entry.title = getFirstChildValue(node, namespaces.atom,"title",null);
+	entry.content = getFirstChildValue(node, namespaces.atom,"content",null);
+	entry.updated = getFirstChildValue(node, namespaces.atom,"updated",null);
+        entry.publisher = getFirstChildValue(node, namespaces.dc,"publisher",null);
+
+	this.parsePersonConstructs(node, "author", entry);
+	
+	var geometry = this.parseLocations(node,namespaces.georss);
+	if ( geometry.length > 0 ) entry.geometry = geometry[0]
+        else entry.geometry = OpenLayers.Geometry.fromWKT("POLYGON((-180 -90,-180 90,180 90,180 -90,-180 -90))");
+        
+	var offerings = this.getElementsByTagNameNS(node, namespaces.owc, "offering");
+        entry.offerings = [];
+        for (var i=0, ii=offerings.length; i<ii; i++) {
+            entry.offerings.push(this.parseOffering(offerings[i], entry.title));
+        }
+	return entry;
+}
+
+    
+          
+function parseOffering(node, title){
+	var offering = {};
+	offering.code=this.getAttributeNS(node, "", "code");
+	offering.content= this.getElementsByTagNameNS(node, namespaces.owc, "content");
+	offering.operations = this.getElementsByTagNameNS(node, namespaces.owc, "operation");
+	
+	offering.type="";
+	if (offering.content.length){
+		offering.type = this.getAttributeNS(offering.content[0], "", "type");		
+	}
+	
+	switch (offering.code){
+		case "http://www.opengis.net/spec/owc/1.0/req/atom/gml":
+			switch (offering.type){
+				case "application/gml+xml":	
+					offering.layer= parseGmlLayer (offering.content[0], title);
+					
+					break;
+			}
+			break;
+		case "http://www.opengis.net/spec/owc/1.0/req/atom/wms":
+			for (var i=0, ii=offering.operations.length; i<ii; i++) {
+				if ( (this.getAttributeNS(offering.operations[i], "", "code")=="GetMap") && 
+				     (this.getAttributeNS(offering.operations[i], "", "method")=="GET") ){
+					var url = this.getAttributeNS(offering.operations[i], "", "href").split("?");			
+					var params = unparam ( url[1] );
+					offering.layer = new OpenLayers.Layer.WMS( title, url[0], 
+						{ layers: params.layers, styles: params.styles, format: params.format,  transparent: params.transparent} );
+				}
+			}
+			break;
+		case "http://www.opengis.net/spec/owc/1.0/req/atom/wfs":
+			for (var i=0, ii=offering.operations.length; i<ii; i++) {
+				if ( (this.getAttributeNS(offering.operations[i], "", "code")=="GetFeature") && 
+				     (this.getAttributeNS(offering.operations[i], "", "method")=="GET") ){
+					var url = this.getAttributeNS(offering.operations[i], "", "href").split("?");			
+					var params = unparam ( url[1] );
+					
+					var result=this.getElementsByTagNameNS(offering.operations[i], namespaces.owc, "result");
+					if (result.length != 0) {
+						switch (this.getAttributeNS(result[0], "", "type")){
+							case "application/gml+xml; version=2":	
+								parser = new OpenLayers.Format.GML.v2({
+									featureType: params.typename,
+									geometryName: "the_geom",
+									featureNS: "",
+									xy:true
+								});
+								break;
+							case "application/gml+xml; version=3.1":
+								parser = new OpenLayers.Format.GML.v3({
+									featureType: params.typename,
+									geometryName: "the_geom",
+									featureNS: "",
+									xy:false
+								});
+								break;		
+						}		
+						parser.read(result[0]);
+						var elems = getElementsByTagNameNS(result[0],parser.featureNS,parser.geometryName);
+						offering.layer = new OpenLayers.Layer.Vector(params.typename);
+						for (var i=0, ii=elems.length; i<ii; i++) {
+							var feature = elems[i].parentElement;
+							offering.layer.addFeatures(parser.read(feature));
+						}
+						
+						
+					}else{
+					
+					offering.layer = new OpenLayers.Layer.Vector(title,{
+							strategies: [new OpenLayers.Strategy.BBOX()],
+							protocol: new OpenLayers.Protocol.WFS({
+									url:  url[0],
+									featureType: params.typename,
+									featureNS: ""
+							})
+					});
+					}
+				}
+			}
+			break;
+			
+	} 
+	return offering;
+}
+
+function unparam (value) {
+    var params = {},
+    // Get query string pieces (separated by &)
+    pieces = value.split('&'),
+    // Temporary variables used in loop.
+    pair, i, l;
+
+    // Loop through query string pieces and assign params.
+    for (i = 0, l = pieces.length; i < l; i++) {
+        pair = pieces[i].split('=', 2);
+        // Repeated parameters with the same name are overwritten. Parameters
+        // with no value get set to boolean true.
+        params[decodeURIComponent(pair[0]).toLowerCase()] = (pair.length == 2 ?
+            decodeURIComponent(pair[1].replace(/\+/g, ' ')) : true);
+    }
+
+    return params;
+};
+
+
+
+function parseGmlLayer(node, name){
+	parser = new OpenLayers.Format.GML.v3({
+		featureType: "",
+		featureNS: "",
+		xy:false
+	});
+	gmlParser.read(node);
+	var geometryName = gmlParser.geometryName;
+	var featureNS = gmlParser.featureNS;
+	var elems = getElementsByTagNameNS(node,featureNS,geometryName);
+	var vectorLayer = new OpenLayers.Layer.Vector(name);
+	for (var i=0, ii=elems.length; i<ii; i++) {
+		var feature = elems[i].parentElement;
+		vectorLayer.addFeatures(gmlParser.read(feature));
+	}
+	return vectorLayer;
+}
+
+var gmlParser= null;
+
+function initGmlParser() {
+        gmlParser = new OpenLayers.Format.GML.v3({
+		featureType: "",
+		featureNS: "",
+		xy:false
+	});
+}
+
+
+
+function parseLocations(node, georssns) {
+        var locations = {components: []};
+        var where = this.getElementsByTagNameNS(node, georssns, "where");
+        if (where && where.length > 0) {
+            if (!gmlParser) {
+                initGmlParser();
+            }
+            for (var i=0, ii=where.length; i<ii; i++) {
+                gmlParser.readChildNodes(where[i], locations);
+            }
+        }
+        
+        if (locations.components.length==0){
+           if (!gmlParser) {
+                initGmlParser();
+            }
+            for (var i=0, ii=node.childNodes.length; i<ii; i++) {
+                gmlParser.readChildNodes(node.childNodes[i], locations);
+            }
+        }
+        
+        var components = locations.components;
+        var point = this.getElementsByTagNameNS(node, georssns, "point");
+        if (point && point.length > 0) {
+            for (var i=0, ii=point.length; i<ii; i++) {
+                var xy = OpenLayers.String.trim(
+                            point[i].firstChild.nodeValue
+                            ).split(/\s+/);
+                if (xy.length !=2) {
+                    xy = OpenLayers.String.trim(
+                                point[i].firstChild.nodeValue
+                                ).split(/\s*,\s*/);
+                }
+                components.push(
+                    new OpenLayers.Geometry.Point(
+                        parseFloat(xy[1]),
+                        parseFloat(xy[0])
+                    )
+                );
+            }
+        }
+
+        var line = this.getElementsByTagNameNS(node, georssns, "line");
+        if (line && line.length > 0) {
+            var coords;
+            var p;
+            var points;
+            for (var i=0, ii=line.length; i<ii; i++) {
+                coords = OpenLayers.String.trim(
+                                line[i].firstChild.nodeValue
+                                ).split(/\s+/);
+                points = [];
+                for (var j=0, jj=coords.length; j<jj; j+=2) {
+                    p = new OpenLayers.Geometry.Point(
+                        parseFloat(coords[j+1]),
+                        parseFloat(coords[j])
+                    );
+                    points.push(p);
+                }
+                components.push(
+                    new OpenLayers.Geometry.LineString(points)
+                );
+            }
+        }        
+
+        var polygon = this.getElementsByTagNameNS(node, georssns, "polygon");
+        if (polygon && polygon.length > 0) {
+            var coords;                                   
+            var p;
+            var points;
+            for (var i=0, ii=polygon.length; i<ii; i++) {
+                coords = OpenLayers.String.trim(
+                            polygon[i].firstChild.nodeValue
+                            ).split(/\s+/);
+                
+                /*
+                for (var j=0, jj=coords.length-2; j<jj; j+=2) {
+                	n1=coords[j+1];
+                	n2=coords[j+3];
+                	mysqrt=Math.sqrt((n1-n2)*(n1-n2));
+                	if (mysqrt > 200) && (n1!=-180{
+                		
+                	}
+                }	
+                */
+                points = [];
+                for (var j=0, jj=coords.length; j<jj; j+=2) {
+                    p = new OpenLayers.Geometry.Point(
+                        parseFloat(coords[j+1]),
+                        parseFloat(coords[j])
+                    );
+                    points.push(p);
+                }
+                components.push(
+                    new OpenLayers.Geometry.Polygon(
+                        [new OpenLayers.Geometry.LinearRing(points)]
+                    )
+                );
+            }
+        }
+        
+        if (this.internalProjection && this.externalProjection) {
+            for (var i=0, ii=components.length; i<ii; i++) {
+                if (components[i]) {
+                    components[i].transform(
+                        this.externalProjection,
+                        this.internalProjection
+                    );
+                }
+            }
+        }
+        
+        return components;
+    }
+
+
+
+function getFirstChildValue(node, nsuri, name, def) {
+        var value;
+        var nodes = getElementsByTagNameNS(node, nsuri, name);
+        if (nodes && nodes.length > 0) {
+            value = getChildValue(nodes[0], def);
+        } else {
+            value = def;
+        }
+        return value;
+    }
+    
+function getChildsByTagName(objNode, nsuri, name) {
+    	    rr = [];
+    	    if(objNode.nodeType == 1){//ignore white spaces
+    	    	    for(var j=0;j<objNode.childNodes.length;j++){
+    	    	    	    var objNode2 = objNode.childNodes[j];
+    	    	    	    if(objNode2.nodeType == 1){//ignore white spaces
+    	    	    	    	    if ((objNode2.namespaceURI==nsuri)&&(objNode2.nodeName==name)){
+    	    	    	    	    	    rr[rr.length]=objNode2;
+    	    	    	    	    }    	    	    	    	    
+    	    	    	    }
+    	    	    }
+    	    }
+    	    return rr;
+    }
+
+
+/**
+     * APIMethod: getElementsByTagNameNS
+     * Get a list of elements on a node given the namespace URI and local name.
+     *     To return all nodes in a given namespace, use '*' for the name
+     *     argument.  To return all nodes of a given (local) name, regardless
+     *     of namespace, use '*' for the uri argument.
+     * 
+     * Parameters:
+     * node - {Element} Node on which to search for other nodes.
+     * uri - {String} Namespace URI.
+     * name - {String} Local name of the tag (without the prefix).
+     * 
+     * Returns:
+     * {NodeList} A node list or array of elements.
+     */
+    
+function getElementsByTagNameNS(node, uri, name) {
+        var elements = [];
+        if(node.getElementsByTagNameNS) {
+            elements = node.getElementsByTagNameNS(uri, name);
+        } else {
+            // brute force method
+            var allNodes = node.getElementsByTagName("*");
+            var potentialNode, fullName;
+            for(var i=0, len=allNodes.length; i<len; ++i) {
+                potentialNode = allNodes[i];
+                fullName = (potentialNode.prefix) ?
+                           (potentialNode.prefix + ":" + name) : name;
+                if((name == "*") || (fullName == potentialNode.nodeName)) {
+                    if((uri == "*") || (uri == potentialNode.namespaceURI)) {
+                        elements.push(potentialNode);
+                    }
+                }
+            }
+        }
+        return elements;
+    }
+    
+function getChildValue(node, def) {
+        var value = def || "";
+        if(node) {
+            for(var child=node.firstChild; child; child=child.nextSibling) {
+                switch(child.nodeType) {
+                    case 3: // text node
+                    case 4: // cdata section
+                        value += child.nodeValue;
+                }
+            }
+        }
+        return value;
+    }
+
+    
+     /**
+     * APIMethod: getAttributeNS
+     * Get an attribute value given the namespace URI and local name.
+     * 
+     * Parameters:
+     * node - {Element} Node on which to search for an attribute.
+     * uri - {String} Namespace URI.
+     * name - {String} Local name of the attribute (without the prefix).
+     * 
+     * Returns:
+     * {String} An attribute value or and empty string if none found.
+     */
+function getAttributeNS(node, uri, name) {
+        var attributeValue = "";
+        if(node.getAttributeNS) {
+            attributeValue = node.getAttributeNS(uri, name) || "";
+        } else {
+            var attributeNode = this.getAttributeNodeNS(node, uri, name);
+            if(attributeNode) {
+                attributeValue = attributeNode.nodeValue;
+            }
+        }
+        return attributeValue;
+    }
+    
+    /**
+     * Method: parsePersonConstruct
+     * Parse Atom person constructs from an Atom entry node.
+     *
+     * Parameters:
+     * node - {DOMElement} An Atom entry or feed node.
+     * name - {String} Construcy name ("author" or "contributor")
+     * data = {Object} Object in which to put parsed persons.
+     *
+     * Returns:
+     * An {Object}.
+     */
+function parsePersonConstructs(node, name, data) {
+        var persons = [];
+        var atomns = namespaces.atom;
+        var nodes = getElementsByTagNameNS(node, atomns, name);
+        var oAtts = ["uri", "email"];
+        for (var i=0, ii=nodes.length; i<ii; i++) {
+            var value = {};
+            value.name = getFirstChildValue(
+                            nodes[i],
+                            atomns,
+                            "name",
+                            null
+                            );
+            for (var j=0, jj=oAtts.length; j<jj; j++) {
+                var attval = getFirstChildValue(
+                            nodes[i],
+                            atomns,
+                            oAtts[j],
+                            null);
+                if (attval) {
+                    value[oAtts[j]] = attval;
+                }
+            }
+            persons.push(value);
+        }
+        if (persons.length > 0) {
+            data[name + "s"] = persons;
+        }
+    }
+  </script>
+</body>
+</html>

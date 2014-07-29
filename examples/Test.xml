@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?><feed xml:lang="en" xmlns="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:georss="http://www.georss.org/georss" xmlns:gml="http://www.opengis.net/gml" xmlns:owc="http://www.opengis.net/owc/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/2005/Atom ../atom/2005/atom.xsd http://purl.org/dc/elements/1.1/ ../../../csw/2.0.2/rec-dcmes.xsd http://purl.org/dc/elements/1.1/ ../../../csw/2.0.2/rec-dcmes.xsd http://www.georss.org/georss ../georss/1.1/georss.xsd http://www.opengis.net/gml ../georss/1.1/gmlgeorss311.xsd http://www.opengis.net/owc/1.0 ../OWSContextCore.xsd">
+
+  <link rel="profile"
+		href="http://www.opengis.net/spec/owc-atom/1.0/req/core"
+		title="This file is compliant with version 1.0 of OGC Context"/>
+
+  <id>Default</id>
+
+  <title>Default</title>
+
+  <updated>2013-01-14T18:08:44Z</updated>
+
+  <author>
+    <name>Envitia</name>
+    <email>support@envitia.com</email>
+    <uri>www.envitia.com</uri>
+  </author>
+
+  <georss:where>
+    <gml:Polygon>
+      <gml:exterior>
+        <gml:LinearRing>
+          <gml:PosList srsDimension="2" srsName="EPSG:4326">29.323818 -85.906275 45.676182 -85.906275 45.676182 -52.407170 29.323818 -52.407170</gml:PosList>
+        </gml:LinearRing>
+      </gml:exterior>
+    </gml:Polygon>
+  </georss:where>
+
+  <entry>
+    <id>Web Map Service (Port Information)</id>
+    <title>Web Map Service (Port Information)</title>
+    <updated>2013-01-14T18:08:44Z</updated>
+    <content type="html">Web Map Service (Port Information)</content>
+    <category scheme="http://www.opengis.net/owc/active" term="true"/>
+    <owc:offering code="http://www.opengis.net/spec/owc/1.0/req/atom/wms">
+      <owc:operation code="GetCapabilities" href="http://dmargs.envitia.com/envitia.bgmaps/wms.aspx?REQUEST=GetCapabilities&amp;SERVICE=WMS" method="GET"/>
+      <owc:operation code="GetMap" href="http://dmargs.envitia.com/envitia.bgmaps/wms.aspx?SERVICE=WMS&amp;VERSION=1.1.1&amp;REQUEST=GetMap&amp;FORMAT=image/png&amp;BGCOLOR=0xFFFFFF&amp;TRANSPARENT=TRUE&amp;CRS=EPSG:4326&amp;LAYERS=PIG&amp;BBOX=-85.906275,29.323818,-52.407170,45.676182&amp;WIDTH=1280&amp;HEIGHT=748" method="GET"/>
+    </owc:offering>
+  </entry>
+
+  <entry>
+    <id>Annotation Layer</id>
+    <title>Annotation Layer</title>
+    <updated>2013-01-14T18:08:44Z</updated>
+    <content type="html">Annotation Layer</content>
+    <category scheme="http://www.opengis.net/owc/active" term="true"/>
+    <owc:offering code="http://www.opengis.net/spec/owc/1.0/req/atom/gml">
+      <owc:content type="application/gml+xml">
+        <gml:FeatureCollection gml:id="1234567890" xmlns:clk="http://www.envitia.com/clk" xmlns:gml="http://www.opengis.net/gml" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.envitia.com/clk clk.xsd">
+          <gml:boundedBy>
+            <gml:Envelope srsName="urn:opengis:def:crs:EPSG::28992">
+              <gml:lowerCorner>34.560849 -73.688164</gml:lowerCorner>
+              <gml:upperCorner>40.278833 -63.215498</gml:upperCorner>
+            </gml:Envelope>
+          </gml:boundedBy>
+          <gml:featureMembers>
+            <clk:Annotation gml:id="1">
+              <clk:geometry>
+                <gml:Polygon srsName="urn:opengis:def:crs:EPSG::4326">
+                  <gml:exterior>
+                    <gml:LinearRing>
+                      <gml:posList srsDimension="2">35.763229 -71.607057 34.560849 -68.216867 36.057144 -63.215498 40.278833 -70.163709 37.606878 -73.688164</gml:posList>
+                    </gml:LinearRing>
+                  </gml:exterior>
+                </gml:Polygon>
+              </clk:geometry>
+            </clk:Annotation>
+          </gml:featureMembers>
+        </gml:FeatureCollection>
+      </owc:content>
+    </owc:offering>
+  </entry>
+
+</feed>
