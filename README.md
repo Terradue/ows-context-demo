@@ -2,7 +2,7 @@
 
 ### Where is the demo?
 
-The demonstration site for the OWS Context is live at: (terradue.github.io/ows-context-demo/)[http://terradue.github.io/ows-context-demo/]
+The demonstration site for the OWS Context is live at [terradue.github.io/ows-context-demo/](http://terradue.github.io/ows-context-demo/)
 
 ![OWS Context demo](https://github.com/Terradue/ows-context-demo/raw/master/src/main/resources/ows-context-imarine.png)
 
