@@ -26,6 +26,6 @@ Please file any bugs or questions as [issues](https://github.com/Terradue/rOpenS
 
 ### Want to contribute?
 
-Fork the OWS Context repository here [https://github.com/Terradue/ows-context-demo/fork] and send us pull requests.
+Fork the OWS Context repository [here](https://github.com/Terradue/ows-context-demo/fork) and send us pull requests.
 
 
