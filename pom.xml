@@ -6,7 +6,7 @@
   <packaging>pom</packaging>
   <name>OGC OWS Context demo</name>
   <description>OGC OWS Context demo</description>
-  <version>0.21</version>
+  <version>0.1</version>
   <scm>
     <connection>scm:git:git@github.com:Terradue/ows-context-demo.git</connection>
     <developerConnection>scm:git:git@github.com:Terradue/ows-context-demo.git</developerConnection>
@@ -162,7 +162,7 @@
         <artifactId>site-maven-plugin</artifactId>
         <version>0.9</version>
         <configuration>
-          <message>Creating site for ${project.version}</message>
+          <message>Creating site for ${description} ${project.version}</message>
         </configuration>
         <executions>
           <execution>
