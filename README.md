@@ -8,7 +8,7 @@ This standard provides a core model, which is extended and encoded as defined in
 
 The OGC Web Services Context Document was created to allow a set of configured information resources (service set) to be passed between applications primarily as a collection of services. OWS Context is developed to support in-line content as well. 
 
-The goal is to support use cases such as the distribution of search results, the exchange of a set of resources such as OGC Web Feature Service (WFS), Web Map Service (WMS), Web Map Tile Service (WMTS), Web Coverage Service (WCS) and others in a ‘common operating picture’. Additionally OWS Context can deliver a set of configured processing services (Web Processing Service (WPS)) parameters to allow the processing to be reproduced on different nodes. 
+The goal is to support use cases such as the distribution of search results, the exchange of a set of resources such as [OGC Web Feature Service (WFS)](http://www.opengeospatial.org/standards/wfs), Web Map Service (WMS), Web Map Tile Service (WMTS), Web Coverage Service (WCS) and others in a ‘common operating picture’. Additionally OWS Context can deliver a set of configured processing services (Web Processing Service (WPS)) parameters to allow the processing to be reproduced on different nodes. 
 
 *Find out more about OGC OWS Context:*
 
