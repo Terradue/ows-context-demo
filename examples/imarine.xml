@@ -19,7 +19,7 @@ sh ./ows2owc -m 'fragment' -b '-69,40,12,65' -u 'http://10.11.31.11:8080/geoserv
 -->
  
   <id>OSWContext_04</id>
-  <title>OWS Context example with FAO and i-Marine Data</title>  
+  <title>OWS Context Example with FAO and i-Marine Data</title>  
   <link rel="profile"
 		href="http://www.opengis.net/spec/owc-atom/1.0/req/core"
 		title="This file is compliant with version 1.0 of OGC Context"/>
