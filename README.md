@@ -1,4 +1,1 @@
-ows-context-demo
-================
-
-OGC OWS Context demonstration
+# OGC OWS Context demonstration
