@@ -2,6 +2,8 @@
 
 The [OGC Web Services Context Document](http://www.opengeospatial.org/standards/owc) (OWS Context) describes the use cases, requirements and conceptual model for the OWS Context encoding standard. 
 
+![OWS Context demo](https://github.com/Terradue/ows-context-demo/raw/master/src/main/resources/ows-context-imarine.png)
+
 This standard provides a core model, which is extended and encoded as defined in extensions to this standard. A ‘context document’ specifies a fully configured service set which can be exchanged (with a consistent interpretation) among clients supporting the standard. 
 
 The OGC Web Services Context Document was created to allow a set of configured information resources (service set) to be passed between applications primarily as a collection of services. OWS Context is developed to support in-line content as well. 
@@ -17,8 +19,6 @@ The goal is to support use cases such as the distribution of search results, the
 ### Where is the demo?
 
 The demonstration is live at [terradue.github.io/ows-context-demo/](http://terradue.github.io/ows-context-demo/)
-
-![OWS Context demo](https://github.com/Terradue/ows-context-demo/raw/master/src/main/resources/ows-context-imarine.png)
 
 ### Questions, bugs, and suggestions
 
