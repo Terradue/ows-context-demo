@@ -22,7 +22,7 @@ The demonstration is live at [terradue.github.io/ows-context-demo/](http://terra
 
 ### Questions, bugs, and suggestions
 
-Please file any bugs or questions as [issues](https://github.com/Terradue/rOpenSearch/issues/new) 
+Please file any bugs or questions as [issues](https://github.com/Terradue/ows-context-demo/issues/new) 
 
 ### Want to contribute?
 
