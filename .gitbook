@@ -1,3 +1,6 @@
 {
-  "section": "OWS Context"
+  "section": {
+    "title": "OWS Context",
+    "id": 1
+  }
 }
