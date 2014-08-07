@@ -12,7 +12,7 @@
 
   <georss:where>
     <gml:Polygon>
-      <gml:exterior>
+      <gml:exterior>s
         <gml:LinearRing>
           <gml:posList srs="EPSG:4326" srsDimension="2">-1.417726 -90.540890 33.238194 -90.540890 33.238194 -22.622864 -1.417726 -22.622864</gml:posList>
         </gml:LinearRing>
@@ -30,8 +30,8 @@
     <category scheme="http://www.opengis.net/owc/active" term="true"/>
     <updated>2010-11-08T00:00:00Z</updated>
     <owc:offering code="http://www.opengis.net/spec/owc/1.0/req/atom/wms">
-      <owc:operation code="GetCapabilities" href="http://services.envitia.com/envitia.bgmaps/wms.aspx?REQUEST=GetCapabilities&amp;SERVICE=WMS" method="GET"/>
-      <owc:operation code="GetMap" href="http://services.envitia.com/envitia.bgmaps/wms.aspx?SERVICE=WMS&amp;VERSION=1.1.1&amp;REQUEST=GetMap&amp;FORMAT=image/png&amp;BGCOLOR=0xFFFFFF&amp;TRANSPARENT=TRUE&amp;CRS=EPSG:4326&amp;Layers=NaturalEarth&amp;BBOX=-90.540890,-1.417726,-22.622864,33.238194&amp;WIDTH=1920&amp;HEIGHT=1148" method="GET"/>
+      <owc:operation code="GetCapabilities" href="http://discovery.envitia.com:8080/BackgroundWMS/OGC?REQUEST=GetCapabilities&amp;SERVICE=WMS" method="GET"/>
+      <owc:operation code="GetMap" href="http://discovery.envitia.com:8080/BackgroundWMS/OGC?SERVICE=WMS&amp;VERSION=1.1.1&amp;REQUEST=GetMap&amp;FORMAT=image/png&amp;BGCOLOR=0xFFFFFF&amp;TRANSPARENT=TRUE&amp;CRS=EPSG:4326&amp;Layers=World&amp;BBOX=-90.540890,-1.417726,-22.622864,33.238194&amp;WIDTH=1920&amp;HEIGHT=1148" method="GET"/>
     </owc:offering>
   </entry>
 
